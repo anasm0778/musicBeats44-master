@@ -188,7 +188,7 @@ def addSongToPlaylist(request):
         return redirect("/")
 
 def index(request):
-    # try:
+    try:
         user = request.user
         if user.is_authenticated:
             # Extracting Playlists of the Authenticated User
@@ -254,8 +254,8 @@ def index(request):
         else:
             return render(request, "index.html", {'trendingSongs':trendingSongs, 'singers':singers, 'newRealeases':newRealeases,
                                         'songsFromVariousArtists':songsFromVariousArtists})
-    # except:
-    #     return redirect("/")
+    except:
+        return redirect("/")
 
 def likesong(request):
     myPlaylists  = []
